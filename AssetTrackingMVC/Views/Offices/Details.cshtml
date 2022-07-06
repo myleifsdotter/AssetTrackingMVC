@@ -6,7 +6,14 @@
 @{
 }
 
-<h1>Details</h1>
+<h1>Office details</h1>
 
-<div>Country: @Model.Country</div>
 <div>Currency: @Model.Currency</div>
+
+<div>
+    <h2>Contact information</h2> 
+    @Model.Address.StreetName @Model.Address.HouseNumber<br />
+    @Model.Address.PostalCode @Model.Address.City<br />
+    @Model.Country
+</div>
+<div>Phone Number: @Model.Address.PhoneNumber</div>

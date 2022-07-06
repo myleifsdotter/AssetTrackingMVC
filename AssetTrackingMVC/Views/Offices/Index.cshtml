@@ -11,17 +11,14 @@
 @*Displaying the contents of the ViewData object*@
 @ViewData["OfficeInfo"]
 
-<div>
-    Office list ...
-</div>
-
-<table class="table-sm">
+<table class="table">
     <thead>
         <tr>
             <th>Country</th>
             <th>Currency</th>
             <th>Details</th>
             <th>Assets</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +32,13 @@
                 <td>
                     <a asp-action="OfficeAssets" asp-route-id="@item.Id">Assets</a>
                 </td>
+                <td>
+                    <a asp-action="DeleteOffice" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
+    <tfoot>
+        <tr><td><a asp-action="AddOffice" >Add an office</a></td></tr>
+    </tfoot>
 </table>

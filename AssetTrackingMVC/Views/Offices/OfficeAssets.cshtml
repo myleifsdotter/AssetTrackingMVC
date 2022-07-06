@@ -8,7 +8,19 @@
 
 <h1>@Model.Country office assets</h1>
 
-<table class=table-sm">
+<table class="table">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Office</th>
+        <th>Purchase Date</th>
+        <th>Price in USD</th>
+        <th>Currency</th>
+    </tr>
+    </thead>
+    <tbody>
     @foreach(var item in @Model.Assets)
     {
         <tr>
@@ -33,4 +45,6 @@
             <td>@item.Office.Currency</td>
         </tr>
     }
+    </tbody>
+    <tfoot></tfoot>
 </table>

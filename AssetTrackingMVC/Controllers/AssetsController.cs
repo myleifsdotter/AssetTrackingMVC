@@ -23,7 +23,7 @@ namespace AssetTrackingMVC.Controllers
             return View(assetList);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public IActionResult AddAsset() // GET function
         {
             ViewData["OfficeId"] = new SelectList(Context.Offices, "Id", "Country");
@@ -45,6 +45,7 @@ namespace AssetTrackingMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult EditAsset(int? id) //GET
         {
             ViewData["OfficeId"] = new SelectList(Context.Offices, "Id", "Country");
@@ -66,6 +67,7 @@ namespace AssetTrackingMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult DeleteAsset(int? id)
         {
             Asset asset = Context.Assets.Include(x => x.Office).FirstOrDefault(x => x.Id == id);

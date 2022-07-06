@@ -22,7 +22,7 @@ namespace AssetTrackingMVC.Controllers
             return View(officeList);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public IActionResult AddOffice() // GET function
         {
             return View();
@@ -39,16 +39,34 @@ namespace AssetTrackingMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public IActionResult Details(int? id)
+        {
+            Office office = Context.Offices.Include(x => x.Address).FirstOrDefault(x => x.Id == id);
+            return View(office);
+        }
+
+        [Authorize]
+        public IActionResult OfficeAssets(int id)
+        {
+            Office office = Context.Offices.Include(x => x.Assets).FirstOrDefault(x => x.Id == id);
+            return View(office);
+        }
+
+        [Authorize(Roles = "admin")]
+        public IActionResult DeleteOffice(int? id)
         {
             Office office = Context.Offices.FirstOrDefault(x => x.Id == id);
             return View(office);
         }
 
-        public IActionResult OfficeAssets(int id)
+        [HttpPost]
+        public IActionResult DeleteTheOffice(int? id)
         {
-            Office office = Context.Offices.Include(x => x.Assets).FirstOrDefault(x => x.Id == id);
-            return View(office);
+            Office office = Context.Offices.FirstOrDefault(x => x.Id == id);
+            Context.Remove(office);
+            Context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

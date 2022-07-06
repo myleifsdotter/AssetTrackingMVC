@@ -7,14 +7,6 @@
 <h1>Add a new office</h1>
 
 <form asp-action="AddOffice">
-    @*<label for="office-choice">Choose an office</label>
-    <input list="available-offices" />
-    <datalist id="available-offices">
-        <option value=""> - Please choose an office - </option>
-        <option value="Sweden">SEK</option>
-        <option value="Spain">EUR</option>
-        <option value="USA">USD</option>
-    </datalist>*@
     Country: <input type="text" name="Country" /><br />
     Currency: <input type="text" name="Currency" /><br />
     <input type="submit" value="AddOffice" />
