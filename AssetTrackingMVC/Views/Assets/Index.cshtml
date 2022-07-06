@@ -1,0 +1,60 @@
+﻿@model List<Asset>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>List of our assets</h1>
+
+@*Displaying the contents of the ViewData object*@
+@ViewData["AssetInfo"]
+
+<div>
+    Asset list ...
+</div>
+
+<table class="table-sm">
+    <tr>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Office</th>
+        <th>Purchase Date</th>
+        <th>Price in USD</th>
+        <th>Currency</th>
+    </tr>
+@foreach(var item in Model){
+    <tr>
+    <td>
+        @item.Type 
+    </td>
+    <td>
+        @item.Brand 
+    </td>
+    <td>
+        @item.Model 
+    </td>
+    <td>
+        @item.Office.Country 
+    </td>
+    <td>
+        @item.PurchaseDate.ToShortDateString() 
+    </td>
+    <td>
+        @item.Price 
+    </td>
+    <td>
+        @item.Office.Currency
+        </td>
+    <td>
+        <a  asp-action="EditAsset" asp-route-id="@item.Id">Edit</a>
+    </td>
+    <td>
+        <a asp-action="DeleteAsset" asp-route-id="@item.Id">Delete</a>
+    </td>
+    </tr>
+}
+
+</table>
