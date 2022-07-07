@@ -12,5 +12,7 @@
         public Office? Office { get; set; }
         public int OfficeId { get; set; } // Foreing Key
 
+        
+
     }
 }

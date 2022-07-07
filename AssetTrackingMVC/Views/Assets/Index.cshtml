@@ -25,7 +25,25 @@
     </thead>
     <tbody>
 @foreach(var item in Model){
-    <tr>
+            string colorChoice = "table-light";
+            var today = DateTime.Now;
+            var years = today.Year - item.PurchaseDate.Year;
+            var months = today.Month - item.PurchaseDate.Month;
+            var days = today.Day - item.PurchaseDate.Day;
+            if (years == 3)
+            {
+                if ((months == -3 && days > 0) || months > -3)
+                {
+                    colorChoice = "table-danger";
+                }
+                else if ((months == -6 && days > 0) || months > -6)
+                {
+                    colorChoice = "table-warning";
+                }
+            }
+            else if (years > 3) { colorChoice = "table-info"; }
+            
+            <tr class="@colorChoice">
     <td>
         @item.Type 
     </td>

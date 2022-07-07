@@ -82,5 +82,7 @@ namespace AssetTrackingMVC.Controllers
             Context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
     }
 }
