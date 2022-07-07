@@ -6,11 +6,18 @@
 @{
 }
 
-<h1>List of our assets</h1>
+<h1>List of assets</h1>
 
 @*Displaying the contents of the ViewData object*@
 @ViewData["AssetInfo"]
-
+<div>
+    <p>
+        <strong>White:</strong> more than six months left.<br />
+        <strong>Yellow:</strong> less than six months left.<br />
+        <strong>Red:</strong> less than three months left.<br />
+        <strong>Blue:</strong> three years has already passed.
+    </p>
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -21,27 +28,13 @@
         <th>Purchase Date</th>
         <th>Price in USD</th>
         <th>Currency</th>
+        <th>Local Price</th>
     </tr>
     </thead>
     <tbody>
 @foreach(var item in Model){
-            string colorChoice = "table-light";
-            var today = DateTime.Now;
-            var years = today.Year - item.PurchaseDate.Year;
-            var months = today.Month - item.PurchaseDate.Month;
-            var days = today.Day - item.PurchaseDate.Day;
-            if (years == 3)
-            {
-                if ((months == -3 && days > 0) || months > -3)
-                {
-                    colorChoice = "table-danger";
-                }
-                else if ((months == -6 && days > 0) || months > -6)
-                {
-                    colorChoice = "table-warning";
-                }
-            }
-            else if (years > 3) { colorChoice = "table-info"; }
+            string colorChoice = Asset.GetColor(item); // color depending on age of asset
+            double localPrice = Asset.LocalPriceToday(item); // current rate from floatrate
             
             <tr class="@colorChoice">
     <td>
@@ -65,6 +58,7 @@
     <td>
         @item.Office.Currency
         </td>
+        <td>@localPrice</td>
     <td>
         <a  asp-action="EditAsset" asp-route-id="@item.Id">Edit</a>
     </td>

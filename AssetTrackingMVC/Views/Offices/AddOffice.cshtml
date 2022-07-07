@@ -5,9 +5,14 @@
 }
 
 <h1>Add a new office</h1>
+@ViewData["NewOfficeInfo"]
 
 <form asp-action="AddOffice">
+    <div class="form-">
     Country: <input type="text" name="Country" /><br />
+    <small class="form-text text-muted">ToDo: add a list of countries here instead.</small><br />
     Currency: <input type="text" name="Currency" /><br />
+    <small class="form-text text-muted">ToDo: add a list of currencies here instead.</small><br />
+    </div>
     <input type="submit" value="AddOffice" />
 </form>

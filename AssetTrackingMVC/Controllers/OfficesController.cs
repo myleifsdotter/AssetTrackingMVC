@@ -25,6 +25,7 @@ namespace AssetTrackingMVC.Controllers
         [Authorize(Roles = "admin")]
         public IActionResult AddOffice() // GET function
         {
+            ViewData["NewOfficeInfo"] = "If the new office has a new currency, it must be added to the local currencies in Asset.LocalPriceToday()";
             return View();
         }
 

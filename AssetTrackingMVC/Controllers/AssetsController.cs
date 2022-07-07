@@ -18,7 +18,7 @@ namespace AssetTrackingMVC.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            ViewData["AssetInfo"] = "Here you can find info about your assets";
+            ViewData["AssetInfo"] = "Asset life span is set to three years. ";
             var assetList = Context.Assets.Include(x => x.Office).ToList();
             return View(assetList);
         }
