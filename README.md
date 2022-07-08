@@ -7,7 +7,8 @@ The presentation is a list of all the assets, which office they belong to, their
 So far it is possible to
 <ul>
 <li>Show a list of assets and see their life span, office and cost</li>
-<li>Add, edit and delete assets and offices.</li>
+<li>Add, edit and delete assets</li>
+<li>The foreign key between office and address isn't yet handled for adding an office, so adding an office doesn't work.</li>
 <li>Users register and login</li>
 <li>Authorized users (admins) may change the database</li>
 </ul>
