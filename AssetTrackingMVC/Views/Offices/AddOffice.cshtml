@@ -1,11 +1,13 @@
-﻿@*
+﻿@model Office
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
 <h1>Add a new office</h1>
-@ViewData["NewOfficeInfo"]
+<h2>The address must be added first, before adding the new office.</h2>
+<h3>@ViewData["NewOfficeInfo"]</h3>
 
 <form asp-action="AddOffice">
     <div class="form-">
@@ -13,7 +15,7 @@
     <small class="form-text text-muted">ToDo: add a list of countries here instead.</small><br />
     Currency: <input type="text" name="Currency" /><br />
     <small class="form-text text-muted">ToDo: add a list of currencies here instead.</small><br />
-    
+    Address: <select asp-for="AddressId" name="addressid" asp-items="ViewBag.AddressId"></select><br />
     </div>
     <input type="submit" value="AddOffice" />
 </form>

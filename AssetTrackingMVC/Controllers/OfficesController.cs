@@ -2,6 +2,7 @@
 using AssetTrackingMVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace AssetTrackingMVC.Controllers
@@ -26,15 +27,17 @@ namespace AssetTrackingMVC.Controllers
         public IActionResult AddOffice() // GET function
         {
             ViewData["NewOfficeInfo"] = "If the new office has a new currency, it must be added to the local currencies in Asset.LocalPriceToday()";
+            ViewData["AddressId"] = new SelectList(Context.Addresses, "Id", "StreetName");
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddOffice(string country, string currency) 
+        public IActionResult AddOffice(string country, string currency, int addressid) 
         {
             Office office = new Office();
             office.Country = country;
             office.Currency = currency;
+            office.AddressId = addressid;
             Context.Offices.Add(office);
             Context.SaveChanges();
             return RedirectToAction("Index");
