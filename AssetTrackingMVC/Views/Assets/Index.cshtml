@@ -36,37 +36,18 @@
             string colorChoice = Asset.GetColor(item); // color depending on age of asset
             double localPrice = Asset.LocalPriceToday(item); // current rate from floatrate
             
-            <tr class="@colorChoice">
-    <td>
-        @item.Type 
-    </td>
-    <td>
-        @item.Brand 
-    </td>
-    <td>
-        @item.Model 
-    </td>
-    <td>
-        @item.Office.Country 
-    </td>
-    <td>
-        @item.PurchaseDate.ToShortDateString() 
-    </td>
-    <td>
-        @item.Price 
-    </td>
-    <td>
-        @item.Office.Currency
-        </td>
+    <tr class="@colorChoice">
+        <td>@item.Type </td>
+        <td>@item.Brand</td>
+        <td>@item.Model</td>
+        <td>@item.Office.Country</td>
+        <td>@item.PurchaseDate.ToShortDateString() </td>
+        <td>@item.Price</td>
+        <td>@item.Office.Currency</td>
         <td>@localPrice</td>
-    <td>
-        <a  asp-action="EditAsset" asp-route-id="@item.Id">Edit</a>
-    </td>
-    <td>
-        <a asp-action="DeleteAsset" asp-route-id="@item.Id">Delete</a>
-    </td>
+        <td><a  asp-action="EditAsset" asp-route-id="@item.Id">Edit</a></td>
+        <td><a asp-action="DeleteAsset" asp-route-id="@item.Id">Delete</a></td>
     </tr>
-
 }
 </tbody>
 <tfoot>

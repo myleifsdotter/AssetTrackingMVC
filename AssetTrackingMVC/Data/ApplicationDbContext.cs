@@ -19,9 +19,9 @@ namespace AssetTrackingMVC.Data
             base.OnModelCreating(modelBuilder);
 
             /* seeding address data */
-            modelBuilder.Entity<Address>().HasData(new Address { Id = 1, StreetName = "Fina gatan", HouseNumber = "4", PostalCode = "21111", City = "Malmö", PhoneNumber = "+46 123 45 67 98" });
-            modelBuilder.Entity<Address>().HasData(new Address { Id = 2, StreetName = "Calle Bonita", HouseNumber = "4", PostalCode = "33203", City = "Gijón", PhoneNumber = "+34 123 45 67 98" });
-            modelBuilder.Entity<Address>().HasData(new Address { Id = 3, StreetName = "Posh Street", HouseNumber = "4", PostalCode = "32601", City = "Gainsville FL", PhoneNumber = "+1 123 45 67 98" });
+            modelBuilder.Entity<Address>().HasData(new Address { Id = 1, StreetName = "Fina gatan", HouseNumber = "4", PostalCode = "21111", City = "Malmö", Country = "Sweden", PhoneNumber = "+46 123 45 67 98" });
+            modelBuilder.Entity<Address>().HasData(new Address { Id = 2, StreetName = "Calle Bonita", HouseNumber = "4", PostalCode = "33203", City = "Gijón", Country = "Spain", PhoneNumber = "+34 123 45 67 98" });
+            modelBuilder.Entity<Address>().HasData(new Address { Id = 3, StreetName = "Posh Street", HouseNumber = "4", PostalCode = "32601", City = "Gainsville FL", Country = "USA", PhoneNumber = "+1 123 45 67 98" });
 
             /* seeding office data */
             modelBuilder.Entity<Office>().HasData(new Office { Id = 1, Country = "Sweden", Currency = "SEK", AddressId = 1 });

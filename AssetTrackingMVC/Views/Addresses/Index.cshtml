@@ -1,0 +1,42 @@
+﻿@model List<Address>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>List of addresses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Street Name</th>
+            <th>House Number</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.StreetName</td>
+                <td>@item.HouseNumber</td>
+                <td>@item.PostalCode</td>
+                <td>@item.City</td>
+                <td>@item.Country</td>
+                <td>@item.PhoneNumber</td>
+                <td><a  asp-action="EditAddress" asp-route-id="@item.Id">Edit</a></td>
+                <td><a asp-action="DeleteAddress" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><a asp-action="AddAddress" >Add an address</a></td>
+        </tr>
+    </tfoot>
+</table>

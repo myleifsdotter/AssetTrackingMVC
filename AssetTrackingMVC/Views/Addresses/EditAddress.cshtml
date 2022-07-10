@@ -1,0 +1,18 @@
+﻿@model Address
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="EditAddress">
+    <input type="hidden" name="id" value="@Model.Id" /><br />
+    Street Name: <input type="text" name="streetname" value="@Model.StreetName" /><br />
+    House Number: <input type="text" name="housenumber" value="@Model.HouseNumber" /><br />
+    Postal Code: <input type="text" name="postalcode" value="@Model.PostalCode" /><br />
+    City: <input type="text" name="city" value="@Model.City" /><br />
+    Country: <input type="text" name="country" value="@Model.Country" />@*<select asp-for="Id" name="id" asp-items="ViewBag.AddressCountry"></select>*@<br />
+    Phone Number: <input type="text" name="phonenumber" value="@Model.PhoneNumber" /><br />
+    <input type="submit" value="Update" />
+</form>

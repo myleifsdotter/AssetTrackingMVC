@@ -60,6 +60,11 @@ namespace AssetTrackingMVC.Models
                 sRateBegin = "Swedish Krona\",\"rate\":";
                 sRateEnd = ",";
             }
+            if (asset.Office.Currency == "DKK")
+            {
+                sRateBegin = "Danish Krone\",\"rate\":";
+                sRateEnd = ",";
+            }
             string sRate = responseFromServer.Substring(responseFromServer.IndexOf(sRateBegin) + sRateBegin.Length);
             sRate = sRate.Substring(0, sRate.IndexOf(sRateEnd));
             if (double.TryParse(sRate, NumberStyles.Number, CultureInfo.CreateSpecificCulture("en-US"), out rate)) { localPrice = asset.Price * rate; }
