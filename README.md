@@ -13,3 +13,5 @@ So far it is possible to
 </ul>
 
 The project was created using Microsoft Visual Studio Community 2022 - Version 17.2.4
+
+Yes, you guessed it, I'm mainly interested in the back-end development.
