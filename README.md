@@ -1,7 +1,7 @@
 # AssetTrackingMVC
 <strong>Education exercise to learn about MVC.</strong>
 
-The project is a start for an Asset Tracking Database. The aim is for a company to keep track of their assets (like laptops, phones, etc).
+This Web App project is a start for an Asset Tracking Database. The aim is for a company to keep track of their assets (like laptops, phones, etc).
 The presentation is a list of all the assets, which office they belong to, their purchase price, the price in local currency based on current rates from floatrate, and with a marker for how close they are to their end of life. 
 
 So far it is possible to
